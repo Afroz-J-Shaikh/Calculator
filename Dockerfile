@@ -11,5 +11,5 @@ FROM openjdk:17-jdk-slim-bookworm
 WORKDIR /app
 RUN apt-get update && apt-get upgrade -y && apt-get clean && rm -rf /var/lib/apt/lists/*
 COPY --from=build /build/target/*.jar app.jar
-EXPOSE 8080
+EXPOSE 8000
 CMD ["java", "-jar", "app.jar"]
