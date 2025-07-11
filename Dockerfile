@@ -1,6 +1,8 @@
 # docker file for maven based java project
 # Stage 1: Build
-FROM maven:3.8.7-openjdk-17 AS build
+
+FROM maven:3.9.6-eclipse-temurin-17 AS build
+
 WORKDIR /build
 COPY pom.xml .
 COPY src ./src
