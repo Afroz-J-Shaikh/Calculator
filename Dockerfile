@@ -2,11 +2,10 @@
 # Stage 1: Build
 
 FROM maven:3.9.6-eclipse-temurin-17 AS build
-
+RUN apt-get update && apt-get install -y xvfb
 WORKDIR /build
 COPY pom.xml .
 COPY src ./src
-RUN apt-get update && apt-get install -y xvfb
 RUN mvn clean package
 
 # Stage 2: Run
