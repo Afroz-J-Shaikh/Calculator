@@ -16,7 +16,7 @@
       <configuration>
         <archive>
           <manifest>
-            <mainClass>com.houari.Calculator</mainClass>
+            <mainClass>com.houari.Calculator.App</mainClass>
           </manifest>
         </archive>
       </configuration>
