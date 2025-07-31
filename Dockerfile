@@ -15,6 +15,7 @@ WORKDIR /app
 
 RUN apt-get update && apt-get install -y xvfb && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN ls /app/target
 COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8000
 CMD ["xvfb-run", "java", "-jar", "app.jar"]
