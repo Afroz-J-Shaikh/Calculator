@@ -13,7 +13,8 @@ RUN mvn -B -e clean package -DskipTests
 FROM openjdk:17-jdk-slim
 WORKDIR /app
 
-RUN apt-get update && apt-get upgrade -y && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y xvfb && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 COPY --from=build /app/*.jar app.jar
 EXPOSE 8000
 CMD ["xvfb-run", "java", "-jar", "app.jar"]
