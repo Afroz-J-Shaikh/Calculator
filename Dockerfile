@@ -9,7 +9,7 @@ COPY src ./src
 RUN mvn clean package
 
 # Stage 2: Run
-FROM openjdk:17-jdk-slim-bookworm
+FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 RUN apt-get update && apt-get upgrade -y && apt-get clean && rm -rf /var/lib/apt/lists/*
