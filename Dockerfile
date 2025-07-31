@@ -5,7 +5,7 @@ FROM maven:3.9.6-eclipse-temurin-17 AS build
 RUN apt-get update && apt-get install -y xvfb
 WORKDIR /app
 COPY pom.xml .
-COPY . /app
+COPY /src /app
 
 RUN mvn -B -e clean package -DskipTests
 
